@@ -1,19 +1,17 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const isProduction = process.env.NODE_ENV === "production";
-
 module.exports = {
-  mode: isProduction ? "production" : "development",
+  mode: "development",
   entry: {
     landing: path.resolve(__dirname, "landing-src", "landing.js"),
     main: path.resolve(__dirname, "src", "index.js"),
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist"),
     clean: true,
-    publicPath: isProduction ? "/todo-list/" : "/",
+  
   },
   module: {
     rules: [
